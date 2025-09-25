@@ -45,7 +45,7 @@ def main():
     # Add it to the resale store's inventory
     print("Buying", computer["description"])
     print("Adding to inventory...")
-    computer_id = buy(computer)
+    buy(computer)
     print("Done.\n")
 
     # Make sure it worked by checking inventory
@@ -55,9 +55,9 @@ def main():
 
     # Now, let's refurbish it
     new_OS = "MacOS Monterey"
-    print("Refurbishing Item ID:", computer_id, ", updating OS to", new_OS)
+    print("Refurbishing... updating OS to", new_OS)
     print("Updating inventory...")
-    refurbish(computer_id, new_OS)
+    refurbish(computer, new_OS)
     print("Done.\n")
 
     # Make sure it worked by checking inventory
@@ -66,8 +66,8 @@ def main():
     print("Done.\n")
     
     # Now, let's sell it!
-    print("Selling Item ID:", computer_id)
-    sell(computer_id)
+    print("Selling computer...")
+    sell(computer)
     
     # Make sure it worked by checking inventory
     print("Checking inventory...")
