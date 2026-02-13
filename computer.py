@@ -1,6 +1,5 @@
-from oo_resale_shop import *
-
 class Computer:
+    #class representing one computer within a resale shop
 
     # What attributes will it need?
     description: str = ""
@@ -25,27 +24,22 @@ class Computer:
         
 
     # What methods will you need?
-    def update_price(self: Dict, new_price: int):
-        if self in inventory:
-            self.price = new_price
-        else:
-            return("Computer not found. Cannot update price.")
+    def update_price(self: dict, new_price: int):
+        #replaces current price of a computer witj a new integer
+        self.price = new_price
+        return self.price
 
-    def new_os():
-        pass
+    def update_os(self: dict, new_opsys: str):
+        #replaces current operating system of a computer with a new string
+        self.operating_system = new_opsys
+        return self.operating_system
         
-    def refurbish(self: Dict, new_os: Optional[str] = None):
-        if self in inventory:
-            if int(self.year_made) < 2000:
-                self.price = 0 # too old to sell, donation only
-            elif int(self.year_made) < 2012:
-                self.price = 250 # heavily-discounted price on machines 10+ years old
-            elif int(self.year_made) < 2018:
-                self.price = 550 # discounted price on machines 4-to-10 year old machines
-            else:
-                self.price = 1000 # recent stuff
+def main():
+   myComputer:Computer = Computer("2019 MacBook Pro","Intel", 256, 16, "Sequoia", 2019, 1000)
+   otherComputer:Computer = Computer("2000 MacBook Air", "Intel", 256, 16, "High Sierra", 2010, 500)
+   print(myComputer.update_price(200))
+   print(otherComputer.update_os("High OS"))
 
-            if new_os is not None:
-                self.operating_system = new_os # update details after installing new OS
-        else:
-            print("Computer not found. Please select another item to refurbish.")
+
+if __name__ == "__main__":
+    main()   
